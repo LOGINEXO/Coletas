@@ -158,6 +158,31 @@ img{display:block;max-width:100%}
 }
 @media(max-width:380px){.nav-right .meli-word{display:none}.nav-cta{padding:10px}.brand-sub{max-width:145px;font-size:8px}.brand{max-width:68%;gap:7px}.brand-logo{width:46px;height:46px}.form-chip{display:none}.scene-label{gap:6px}.scene-label img{width:78px}.scene-label span{font-size:6px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+
+.wizard-card{max-width:850px;margin:0 auto;padding:clamp(22px,4vw,42px)}
+.wizard-progress{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto 34px;max-width:520px}
+.wizard-step{display:flex;align-items:center;gap:9px;color:#9298aa;font-size:13px;font-weight:800;white-space:nowrap}
+.wizard-step span{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#edf0f6;color:#777f98;font-weight:950}
+.wizard-step.active{color:var(--navy)}.wizard-step.active span{background:var(--yellow);color:var(--navy)}
+.wizard-step.done span{background:#e3f6eb;color:#147a4b}
+.wizard-line{height:2px;flex:1;max-width:100px;background:#e4e7ef}.wizard-line.done{background:var(--navy)}
+.wizard-panel[hidden]{display:none}
+.question-list{display:grid;gap:18px}
+.question{margin:0;padding:0 0 18px;border:0;border-bottom:1px solid var(--line);min-width:0}
+.question legend{display:flex;gap:11px;align-items:flex-start;width:100%;margin-bottom:12px;color:var(--navy);font-size:15px;font-weight:900;line-height:1.45}
+.question legend span{flex:0 0 30px;width:30px;height:30px;display:grid;place-items:center;border-radius:9px;background:#fff4ad;font-size:12px}
+.choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.choice{display:block;cursor:pointer;min-width:0}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice span{display:flex;align-items:center;min-height:45px;padding:11px 13px;border:1px solid #dfe3ed;border-radius:11px;color:#4e5672;font-size:13px;font-weight:700;line-height:1.35;transition:border-color .15s,background .15s,box-shadow .15s}
+.choice input:checked+span{border-color:var(--navy);background:#f0f1ff;color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy)}
+.choice input:focus-visible+span{outline:3px solid #2d327733;outline-offset:2px}
+.wizard-button{margin-top:22px!important}
+.wizard-actions{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center}
+.wizard-actions .wizard-button{margin-top:20px!important}
+.back-button{margin-top:20px;padding:15px 8px;border:0;background:transparent;color:var(--navy);font:inherit;font-size:13px;font-weight:850;cursor:pointer}
+@media(max-width:600px){.wizard-card{padding:22px 16px}.wizard-progress{gap:8px;margin-bottom:27px}.wizard-step{font-size:11px;gap:6px}.wizard-step span{width:29px;height:29px}.choice-grid{grid-template-columns:1fr}.choice span{min-height:43px}.question legend{font-size:14px}.wizard-actions{grid-template-columns:1fr}.wizard-actions .wizard-button{margin-top:0!important}.back-button{margin-top:10px;grid-row:2}}
+
 </style>
 </head>
 <body>
@@ -229,79 +254,103 @@ img{display:block;max-width:100%}
   </div>
  </div>
 </section>
-<section class="trustbar">
- <div class="wrap trust-items">
-  <div class="trust-item"><b>1</b> Informe os dados do comércio</div>
-  <div class="trust-item"><b>2</b> Conheça as etapas e requisitos</div>
-  <div class="trust-item"><b>3</b> Converse com a equipe</div>
- </div>
-</section>
-<section class="section">
- <div class="wrap">
-  <div class="section-heading"><span class="kicker">Como funciona</span><h2>Do interesse à avaliação do estabelecimento.</h2><p class="lead">O cadastro inicial ajuda a entender o perfil do seu negócio. Depois, nossa equipe explica as próximas etapas e orienta sobre os critérios aplicáveis.</p></div>
-  <div class="steps">
-   <article class="step"><span class="step-number">01</span><div><h3>Envie suas informações</h3><p>Conte onde fica seu comércio e deixe um contato para nossa equipe conversar com você.</p></div></article>
-   <article class="step"><span class="step-number">02</span><div><h3>Entenda os requisitos</h3><p>Conheça as condições de espaço, rotina e operação necessárias para um ponto de coleta.</p></div></article>
-   <article class="step"><span class="step-number">03</span><div><h3>Conheça o processo</h3><p>Seu interesse será encaminhado para orientação sobre avaliação e próximos passos.</p></div></article>
-  </div>
- </div>
-</section>
-<section class="section criteria">
- <div class="wrap criteria-grid">
-  <div><span class="kicker">Seu comércio está preparado?</span><h2>Vamos conhecer a estrutura do seu estabelecimento.</h2><p class="lead">Alguns aspectos podem ser considerados na avaliação de um ponto de coleta. Informe seus dados para entender se o seu comércio pode se enquadrar.</p></div>
-  <div class="criteria-panel">
-   <div class="criteria-list">
-    <div class="criteria-item"><i>✓</i><span>Estabelecimento comercial em funcionamento</span></div>
-    <div class="criteria-item"><i>✓</i><span>Espaço disponível para receber e organizar encomendas</span></div>
-    <div class="criteria-item"><i>✓</i><span>Disponibilidade para seguir procedimentos operacionais</span></div>
-    <div class="criteria-item"><i>✓</i><span>Localização e horários compatíveis com a operação</span></div>
-   </div>
-   <div class="criteria-note">Os requisitos podem variar. O envio do formulário demonstra interesse e não garante aprovação ou ativação como ponto de coleta.</div>
-  </div>
- </div>
-</section>
 <section class="section form-section" id="cadastro">
- <div class="wrap form-grid">
-  <div class="form-side">
-   <span class="kicker">Comece por aqui</span>
-   <h2>Seu comércio pode ir mais longe.</h2>
-   <p class="lead">Preencha o que souber. Os campos de nome completo e CPF são opcionais — você não precisa informar esses dados para continuar.</p>
-   <div class="form-points">
-    <div class="form-point"><b>✓</b><span>Cadastro inicial rápido</span></div>
-    <div class="form-point"><b>✓</b><span>Contato direto pelo WhatsApp</span></div>
-    <div class="form-point"><b>✓</b><span>CPF não obrigatório</span></div>
-    <div class="form-point"><b>✓</b><span>Sem promessa de aprovação automática</span></div>
+ <div class="wrap">
+  <form class="form-card wizard-card" id="leadForm">
+   <div class="wizard-progress" aria-label="Progresso do cadastro">
+    <div class="wizard-step active" id="progress1"><span>1</span><b>Questionário rápido</b></div>
+    <div class="wizard-line" id="progressLine"></div>
+    <div class="wizard-step" id="progress2"><span>2</span><b>Seus dados</b></div>
    </div>
-  </div>
-  <form class="form-card" id="leadForm">
-   <div class="form-card-head"><div><h3>Cadastro de interesse</h3><p>Conte um pouco sobre você e seu comércio.</p></div><span class="form-chip">PRÉ-CADASTRO</span></div>
-   <div class="fields">
-    <div class="field"><label for="nome">Nome completo <span>(opcional)</span></label><input id="nome" name="nome" autocomplete="name" placeholder="Seu nome completo"></div>
-    <div class="field"><label for="cpf">CPF <span>(opcional)</span></label><input id="cpf" name="cpf" inputmode="numeric" autocomplete="off" maxlength="14" placeholder="000.000.000-00"><small class="optional-help">Informe somente se desejar.</small></div>
-    <div class="field"><label for="telefone">WhatsApp *</label><input id="telefone" name="telefone" type="tel" autocomplete="tel" required placeholder="(00) 00000-0000"></div>
-    <div class="field"><label for="email">E-mail <span>(opcional)</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com"></div>
-    <div class="field full"><label for="comercio">Nome do comércio *</label><input id="comercio" name="comercio" required placeholder="Nome do estabelecimento"></div>
-    <div class="field"><label for="cnpj">CNPJ <span>(opcional)</span></label><input id="cnpj" name="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00"></div>
-    <div class="field"><label for="cidade">Cidade *</label><input id="cidade" name="cidade" required placeholder="Sua cidade"></div>
-    <div class="field"><label for="estado">Estado *</label><select id="estado" name="estado" required><option value="">Selecione</option><option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option><option>SE</option><option>TO</option></select></div>
-   </div>
-   <button class="btn" type="submit">CONTINUAR PELO WHATSAPP <span>→</span></button>
-   <p class="privacy">Os dados preenchidos serão incluídos na mensagem preparada para o WhatsApp. A conversa será aberta para você revisar e confirmar o envio. Nome completo e CPF são opcionais e podem ficar em branco.</p>
-   <div class="notice" id="notice" role="status">Abrindo o WhatsApp…</div>
+   <section class="wizard-panel" id="questionStep">
+    <div class="form-card-head"><div><span class="kicker">ETAPA 1 DE 2</span><h3>Responda 5 perguntas rápidas</h3><p>É rapidinho! Marque uma opção em cada pergunta.</p></div><span class="form-chip">1 DE 2</span></div>
+    <div class="question-list">
+     <fieldset class="question"><legend><span>01</span> Quantas pessoas entram na sua loja por dia?</legend>
+      <div class="choice-grid"><label class="choice"><input type="radio" name="movimento" value="Até 20 pessoas" required><span>Até 20 pessoas</span></label><label class="choice"><input type="radio" name="movimento" value="De 20 a 50 pessoas"><span>De 20 a 50 pessoas</span></label><label class="choice"><input type="radio" name="movimento" value="De 50 a 100 pessoas"><span>De 50 a 100 pessoas</span></label><label class="choice"><input type="radio" name="movimento" value="Mais de 100 pessoas"><span>Mais de 100 pessoas</span></label></div>
+     </fieldset>
+     <fieldset class="question"><legend><span>02</span> Você tem espaço para guardar pacotes?</legend>
+      <div class="choice-grid"><label class="choice"><input type="radio" name="espaco" value="Sim, bastante espaço" required><span>Sim, bastante espaço</span></label><label class="choice"><input type="radio" name="espaco" value="Sim, um espaço pequeno"><span>Sim, um espaço pequeno</span></label><label class="choice"><input type="radio" name="espaco" value="Não tenho espaço disponível"><span>Não tenho espaço disponível</span></label></div>
+     </fieldset>
+     <fieldset class="question"><legend><span>03</span> Como é o movimento nos dias mais fracos?</legend>
+      <div class="choice-grid"><label class="choice"><input type="radio" name="dias_fracos" value="Baixo" required><span>Baixo</span></label><label class="choice"><input type="radio" name="dias_fracos" value="Moderado"><span>Moderado</span></label><label class="choice"><input type="radio" name="dias_fracos" value="Bom"><span>Bom</span></label><label class="choice"><input type="radio" name="dias_fracos" value="Varia bastante"><span>Varia bastante</span></label></div>
+     </fieldset>
+     <fieldset class="question"><legend><span>04</span> Você gostaria de oferecer produtos ou serviços aos clientes que forem buscar pacotes?</legend>
+      <div class="choice-grid"><label class="choice"><input type="radio" name="ofertas" value="Sim, descontos" required><span>Sim, descontos</span></label><label class="choice"><input type="radio" name="ofertas" value="Sim, produtos ou serviços"><span>Sim, produtos ou serviços</span></label><label class="choice"><input type="radio" name="ofertas" value="Sim, promoções"><span>Sim, promoções</span></label><label class="choice"><input type="radio" name="ofertas" value="Não"><span>Não</span></label></div>
+     </fieldset>
+     <fieldset class="question"><legend><span>05</span> Seu estabelecimento tem endereço fixo e está em funcionamento?</legend>
+      <div class="choice-grid"><label class="choice"><input type="radio" name="funcionamento" value="Sim, os dois" required><span>Sim, os dois</span></label><label class="choice"><input type="radio" name="funcionamento" value="Tenho endereço, mas ainda não estou funcionando"><span>Tenho endereço, mas ainda não estou funcionando</span></label><label class="choice"><input type="radio" name="funcionamento" value="Ainda não tenho um ponto físico"><span>Ainda não tenho um ponto físico</span></label></div>
+     </fieldset>
+    </div>
+    <button class="btn wizard-button" id="continueToData" type="button">CONTINUAR PARA O CADASTRO <span>→</span></button>
+    <p class="privacy">Responda às cinco perguntas para continuar.</p>
+    <div class="notice" id="questionNotice" role="alert">Selecione uma opção em cada pergunta.</div>
+   </section>
+   <section class="wizard-panel" id="dataStep" hidden>
+    <div class="form-card-head"><div><span class="kicker">ETAPA 2 DE 2</span><h3>Seus dados</h3><p>Agora informe os dados para nossa equipe entrar em contato.</p></div><span class="form-chip">2 DE 2</span></div>
+    <div class="fields">
+     <div class="field"><label for="nome">Nome completo <span>(opcional)</span></label><input id="nome" name="nome" autocomplete="name" placeholder="Seu nome completo"></div>
+     <div class="field"><label for="cpf">CPF <span>(opcional)</span></label><input id="cpf" name="cpf" inputmode="numeric" autocomplete="off" maxlength="14" placeholder="000.000.000-00"><small class="optional-help">Informe somente se desejar.</small></div>
+     <div class="field"><label for="telefone">WhatsApp *</label><input id="telefone" name="telefone" type="tel" autocomplete="tel" required placeholder="(00) 00000-0000"></div>
+     <div class="field"><label for="email">E-mail <span>(opcional)</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com"></div>
+     <div class="field full"><label for="comercio">Nome do comércio *</label><input id="comercio" name="comercio" required placeholder="Nome do estabelecimento"></div>
+     <div class="field"><label for="cnpj">CNPJ <span>(opcional)</span></label><input id="cnpj" name="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00"></div>
+     <div class="field"><label for="cidade">Cidade *</label><input id="cidade" name="cidade" required placeholder="Sua cidade"></div>
+     <div class="field"><label for="estado">Estado *</label><select id="estado" name="estado" required><option value="">Selecione</option><option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option><option>SE</option><option>TO</option></select></div>
+    </div>
+    <div class="wizard-actions"><button class="back-button" id="backToQuestions" type="button">← Voltar às perguntas</button><button class="btn wizard-button" type="submit">ENVIAR PELO WHATSAPP <span>→</span></button></div>
+    <p class="privacy">Confira seus dados. O WhatsApp abrirá com a mensagem pronta para você revisar e enviar. Nome completo e CPF são opcionais.</p>
+    <div class="notice" id="notice" role="status">Abrindo o WhatsApp…</div>
+   </section>
   </form>
  </div>
 </section>
 </main>
 <footer class="footer"><div class="wrap footer-inner"><div><div class="footer-brand">ML COLETAS</div><small>Atendimento e pré-cadastro de interessados.</small></div><div class="footer-copy">Informação e captação de interessados em pontos de coleta de encomendas.</div></div></footer>
 <script>
+const leadForm=document.getElementById('leadForm');
+const questionStep=document.getElementById('questionStep');
+const dataStep=document.getElementById('dataStep');
+const questionNotice=document.getElementById('questionNotice');
+const progress1=document.getElementById('progress1');
+const progress2=document.getElementById('progress2');
+const progressLine=document.getElementById('progressLine');
+
+function showDataStep(){
+ const groups=['movimento','espaco','dias_fracos','ofertas','funcionamento'];
+ const complete=groups.every(name=>leadForm.querySelector('input[name="'+name+'"]:checked'));
+ if(!complete){questionNotice.style.display='block';const first=groups.find(name=>!leadForm.querySelector('input[name="'+name+'"]:checked'));leadForm.querySelector('input[name="'+first+'"]').focus();return;}
+ questionNotice.style.display='none';
+ questionStep.hidden=true;dataStep.hidden=false;
+ progress1.classList.remove('active');progress1.classList.add('done');
+ progress2.classList.add('active');progressLine.classList.add('done');
+ document.getElementById('cadastro').scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.getElementById('continueToData').addEventListener('click',showDataStep);
+document.getElementById('backToQuestions').addEventListener('click',()=>{
+ dataStep.hidden=true;questionStep.hidden=false;
+ progress2.classList.remove('active');progress1.classList.remove('done');progress1.classList.add('active');progressLine.classList.remove('done');
+ document.getElementById('cadastro').scrollIntoView({behavior:'smooth',block:'start'});
+});
+leadForm.querySelectorAll('.question input').forEach(input=>input.addEventListener('change',()=>{questionNotice.style.display='none';}));
 const cpfInput=document.getElementById('cpf');
 cpfInput.addEventListener('input',()=>{let v=cpfInput.value.replace(/\D/g,'').slice(0,11);v=v.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');cpfInput.value=v;});
-document.getElementById('leadForm').addEventListener('submit',function(e){
- e.preventDefault();if(!this.reportValidity())return;
+leadForm.addEventListener('submit',function(e){
+ e.preventDefault();
+ if(dataStep.hidden){showDataStep();return;}
+ const required=['telefone','comercio','cidade','estado'];
+ for(const id of required){const field=document.getElementById(id);if(!field.reportValidity()){field.focus();return;}}
  const d=new FormData(this);
  const msg=[
   'Olá! Tenho interesse em conhecer como meu comércio pode se candidatar a um ponto de coleta de encomendas do Mercado Livre.',
   '',
+  'QUESTIONÁRIO INICIAL',
+  'Pessoas que entram na loja por dia: '+d.get('movimento'),
+  'Espaço para guardar pacotes: '+d.get('espaco'),
+  'Movimento nos dias mais fracos: '+d.get('dias_fracos'),
+  'Interesse em oferecer produtos ou serviços: '+d.get('ofertas'),
+  'Endereço fixo e funcionamento: '+d.get('funcionamento'),
+  '',
+  'DADOS DO INTERESSADO',
   'Nome completo: '+(d.get('nome')||'Não informado'),
   'CPF: '+(d.get('cpf')||'Não informado'),
   'WhatsApp: '+d.get('telefone'),
