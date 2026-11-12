@@ -15,12 +15,12 @@ a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 .wrap{width:min(1160px,calc(100% - 44px));margin-inline:auto}
 .header{position:sticky;top:0;z-index:20;background:var(--yellow);border-bottom:1px solid #e8d200;box-shadow:0 5px 20px #25295b12}
-.nav{min-height:94px;display:flex;align-items:center;justify-content:space-between;gap:22px}
-.brand{display:flex;align-items:center;gap:15px;min-width:0}
+.nav{min-height:100px;display:flex;align-items:center;justify-content:center;gap:22px;position:relative}
+.brand{display:flex;align-items:center;justify-content:center;gap:15px;min-width:0;text-align:center}
 .brand-logo{width:78px;height:78px;object-fit:cover;border-radius:15px;border:3px solid var(--navy);box-shadow:0 5px 12px #171c5220}
 .brand-name{font-size:22px;font-weight:950;letter-spacing:-.04em;color:var(--navy);line-height:1.05}
-.brand-sub{display:block;margin-top:6px;font-size:10px;font-weight:800;letter-spacing:.13em;color:#3d427d;text-transform:uppercase}
-.nav-right{display:flex;align-items:center;gap:20px}
+.brand-sub{display:block;margin-top:7px;font-size:11px;font-weight:800;letter-spacing:.06em;color:#3d427d;text-transform:none}
+.nav-right{display:flex;align-items:center;gap:20px;position:absolute;right:0;top:50%;transform:translateY(-50%)}
 .meli-word{width:142px;height:auto;max-height:56px;object-fit:contain}
 .meli-fallback{display:none;font-size:17px;font-weight:950;letter-spacing:-.06em;color:var(--navy)}
 .nav-cta{background:var(--navy);color:#fff;padding:14px 19px;border-radius:999px;font-size:13px;font-weight:900;letter-spacing:.02em;box-shadow:0 5px 0 #171b50;transition:transform .2s,box-shadow .2s;white-space:nowrap}
@@ -40,8 +40,15 @@ img{display:block;max-width:100%}
 .btn:hover{transform:translateY(-2px)}
 .hero-note{display:flex;align-items:center;gap:8px;margin-top:17px;font-size:12px;color:#c6c9e7}
 .hero-note b{color:var(--yellow)}
-.hero-visual{position:relative;min-height:360px;display:grid;place-items:center}
+.hero-visual{position:relative;min-height:390px;display:grid;place-items:center}
 .visual-glow{position:absolute;width:310px;height:310px;border-radius:50%;background:#ffe600;filter:blur(1px);opacity:.13}
+.scene-halo{position:absolute;width:355px;height:355px;border-radius:50%;background:radial-gradient(circle,#ffe60035 0%,#ffe60008 62%,transparent 72%)}
+.scene-label{position:absolute;top:0;right:8px;display:flex;align-items:center;gap:10px;padding:10px 13px;border-radius:14px;background:#fff;box-shadow:0 9px 25px #10143d24;z-index:2}
+.scene-label img{width:116px;height:32px;object-fit:contain}
+.scene-label span{font-size:8px;letter-spacing:.12em;font-weight:950;color:#2d3277}
+.delivery-scene{position:relative;z-index:1;width:100%;max-width:540px;overflow:visible}
+.scene-caption{position:absolute;bottom:2px;left:50%;transform:translateX(-50%);display:grid;gap:4px;text-align:center;width:max-content;max-width:95%;padding:12px 19px;border:1px solid #ffffff35;border-radius:14px;background:#171d58;color:#fff;box-shadow:0 10px 25px #11143b30}
+.scene-caption b{font-size:13px}.scene-caption span{font-size:10px;color:#ffe600;font-weight:800;letter-spacing:.06em}
 .visual-card{position:relative;width:min(100%,405px);padding:27px;border-radius:27px;background:linear-gradient(145deg,#fff 0%,#fff9d5 100%);color:var(--navy);box-shadow:0 26px 70px #11154570;transform:rotate(2deg)}
 .visual-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:18px;border-bottom:1px solid #e3e4ec}
 .visual-top img{width:130px;max-height:51px;object-fit:contain}
@@ -107,20 +114,20 @@ img{display:block;max-width:100%}
 @media(max-width:900px){.hero-grid{gap:30px}.hero-visual{min-height:320px}.criteria-grid{gap:30px}.form-grid{gap:28px}}
 @media(max-width:700px){
  .wrap{width:min(100% - 30px,560px)}
- .nav{min-height:78px;gap:10px}
- .brand{gap:10px}
- .brand-logo{width:58px;height:58px;border-radius:11px;border-width:2px}
+ .nav{min-height:86px;gap:10px}
+ .brand{gap:10px;max-width:65%;}
+ .brand-logo{width:54px;height:54px;border-radius:11px;border-width:2px}
  .brand-name{font-size:17px}
- .brand-sub{font-size:8px;letter-spacing:.08em;max-width:180px;line-height:1.25}
- .nav-right{gap:9px}
+ .brand-sub{font-size:9px;letter-spacing:.02em;max-width:190px;line-height:1.25}
+ .nav-right{gap:9px;right:0}
  .meli-word{width:94px;max-height:39px}
  .nav-cta{padding:11px 12px;font-size:10px;box-shadow:0 3px 0 #171b50}
  .hero{padding:54px 0 42px}
  .hero-grid{grid-template-columns:1fr;gap:16px}
  .hero h1{font-size:clamp(38px,11vw,54px);margin:18px 0 15px}
  .hero-copy{font-size:15px;line-height:1.6;margin-bottom:22px}
- .hero-visual{min-height:285px;margin-top:2px}
- .visual-card{width:min(100%,360px);padding:21px;border-radius:22px}
+ .hero-visual{min-height:330px;margin-top:5px;padding-top:38px}
+ .visual-card{width:min(100%,360px);padding:21px;border-radius:22px}.scene-label{top:-2px;right:0;padding:7px 9px}.scene-label img{width:92px;height:25px}.scene-label span{font-size:7px}.scene-caption{bottom:-4px;padding:10px 14px}.scene-caption b{font-size:12px}.scene-caption span{font-size:9px}.delivery-scene{width:112%;max-width:none;margin-left:-6%}
  .visual-top img{width:112px}
  .parcel{width:83px;height:76px;font-size:29px}
  .trustbar{padding:12px 0}
@@ -149,7 +156,7 @@ img{display:block;max-width:100%}
  .footer-inner{align-items:flex-start;flex-direction:column}
  .footer-copy{text-align:left}
 }
-@media(max-width:380px){.nav-right .meli-word{display:none}.nav-cta{padding:10px}.brand-sub{max-width:150px}.form-chip{display:none}}
+@media(max-width:380px){.nav-right .meli-word{display:none}.nav-cta{padding:10px}.brand-sub{max-width:145px;font-size:8px}.brand{max-width:68%;gap:7px}.brand-logo{width:46px;height:46px}.form-chip{display:none}.scene-label{gap:6px}.scene-label img{width:78px}.scene-label span{font-size:6px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 </style>
 </head>
@@ -158,7 +165,7 @@ img{display:block;max-width:100%}
  <div class="wrap nav">
   <a class="brand" href="#" aria-label="ML Coletas - início">
    <img class="brand-logo" src="assets/ponto-coleta.jpg" alt="Atendimento Ponto de Coleta">
-   <span><span class="brand-name">ML COLETAS</span><small class="brand-sub">Pontos de coleta de encomendas</small></span>
+   <span><span class="brand-name">ML COLETAS</span><small class="brand-sub">Informação e captação de interessados.</small></span>
   </a>
   <div class="nav-right">
    <img class="meli-word" src="https://upload.wikimedia.org/wikipedia/commons/1/16/Mercado_Livre_wordmark_%28Portuguese_version%29.svg" alt="Mercado Livre" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
@@ -177,19 +184,48 @@ img{display:block;max-width:100%}
    <a class="btn" href="#cadastro">QUERO CONHECER A OPORTUNIDADE <span>→</span></a>
    <div class="hero-note"><b>✓</b> Pré-cadastro simples • Atendimento pelo WhatsApp</div>
   </div>
-  <div class="hero-visual" aria-label="Ilustração de encomendas e ponto de coleta">
-   <div class="visual-glow"></div>
-   <div class="visual-card">
-    <div class="visual-top">
-     <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Mercado_Livre_wordmark_%28Portuguese_version%29.svg" alt="Mercado Livre" onerror="this.style.display='none'">
-     <small>OPERAÇÃO DE<br>ENCOMENDAS</small>
-    </div>
-    <div class="parcel-row">
-     <div class="parcel" aria-hidden="true">▧</div>
-     <div class="route"><span><i>1</i> Recebimento</span><span><i>2</i> Organização</span><span><i>3</i> Retirada</span></div>
-    </div>
-    <div class="visual-bottom"><strong>Seu comércio no fluxo de entregas</strong><span>PONTO DE COLETA</span></div>
-   </div>
+  <div class="hero-visual" aria-label="Caminhão de encomendas chegando a um ponto de coleta, com pacote identificado Mercado Livre">
+   <div class="scene-halo"></div>
+   <div class="scene-label"><img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Mercado_Livre_wordmark_%28Portuguese_version%29.svg" alt="Mercado Livre"><span>ENCOMENDA A CAMINHO</span></div>
+   <svg class="delivery-scene" viewBox="0 0 560 390" role="img" aria-label="Caminhão de entregas chegando ao ponto de coleta indicado por um pin de localização">
+    <defs>
+     <linearGradient id="vanBody" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#fff45c"/><stop offset="1" stop-color="#ffd000"/></linearGradient>
+     <linearGradient id="parcelBody" x1="0" x2="1"><stop stop-color="#ffe879"/><stop offset="1" stop-color="#ffc928"/></linearGradient>
+     <filter id="sceneShadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#10143d" flood-opacity=".24"/></filter>
+    </defs>
+    <ellipse cx="280" cy="340" rx="230" ry="23" fill="#141943" opacity=".22"/>
+    <path d="M40 316 C140 286 215 298 280 316 S420 343 520 300" fill="none" stroke="#fff" stroke-width="34" stroke-linecap="round" opacity=".12"/>
+    <path d="M40 316 C140 286 215 298 280 316 S420 343 520 300" fill="none" stroke="#ffe600" stroke-width="3" stroke-dasharray="13 13" stroke-linecap="round" opacity=".8"/>
+    <g filter="url(#sceneShadow)" transform="translate(55 160)">
+     <path d="M18 46 Q18 30 35 30 H237 Q252 30 252 47 V150 H18Z" fill="url(#vanBody)" stroke="#222968" stroke-width="5"/>
+     <path d="M252 75 H315 Q328 75 338 91 L365 126 V150 H252Z" fill="#fff" stroke="#222968" stroke-width="5" stroke-linejoin="round"/>
+     <path d="M273 86 H309 Q316 86 323 97 L340 119 H273Z" fill="#9edcf5" stroke="#222968" stroke-width="4"/>
+     <path d="M18 150 H365" stroke="#222968" stroke-width="7" stroke-linecap="round"/>
+     <circle cx="92" cy="153" r="26" fill="#24285f"/><circle cx="92" cy="153" r="11" fill="#dce1f4"/>
+     <circle cx="298" cy="153" r="26" fill="#24285f"/><circle cx="298" cy="153" r="11" fill="#dce1f4"/>
+     <path d="M51 57 H225 V130 H51Z" fill="#fff9d8" opacity=".82"/>
+     <text x="138" y="88" text-anchor="middle" font-size="15" font-weight="900" fill="#252b70">MERCADO LIVRE</text>
+     <text x="138" y="108" text-anchor="middle" font-size="10" font-weight="800" letter-spacing="2" fill="#555b8a">ENTREGAS</text>
+     <path d="M239 54 V143" stroke="#222968" stroke-width="4"/>
+    </g>
+    <g transform="translate(360 32)" filter="url(#sceneShadow)">
+     <path d="M70 0 C31 0 0 31 0 70 C0 124 70 190 70 190 S140 124 140 70 C140 31 109 0 70 0Z" fill="#ffe600" stroke="#fff" stroke-width="7"/>
+     <circle cx="70" cy="68" r="34" fill="#2d3277"/>
+     <path d="M70 44 C56 44 46 54 46 68 C46 86 70 104 70 104 S94 86 94 68 C94 54 84 44 70 44Z" fill="#fff"/>
+     <circle cx="70" cy="67" r="9" fill="#2d3277"/>
+    </g>
+    <g transform="translate(360 250)" filter="url(#sceneShadow)">
+     <path d="M0 19 L58 0 L117 19 L58 42Z" fill="#fff0a1" stroke="#292f75" stroke-width="3"/>
+     <path d="M0 19 V82 L58 107 V42Z" fill="url(#parcelBody)" stroke="#292f75" stroke-width="3"/>
+     <path d="M117 19 V82 L58 107 V42Z" fill="#ffc400" stroke="#292f75" stroke-width="3"/>
+     <path d="M49 4 L69 11 L69 100 L49 92Z" fill="#fff5bf" stroke="#292f75" stroke-width="1.5"/>
+     <rect x="15" y="49" width="36" height="23" rx="4" fill="#fff" opacity=".96"/>
+     <text x="33" y="58" text-anchor="middle" font-size="5.5" font-weight="900" fill="#252b70">MERCADO</text>
+     <text x="33" y="65" text-anchor="middle" font-size="5.5" font-weight="900" fill="#252b70">LIVRE</text>
+    </g>
+    <g fill="#fff"><circle cx="44" cy="91" r="5" opacity=".65"/><circle cx="503" cy="205" r="7" opacity=".55"/><circle cx="315" cy="65" r="4" opacity=".6"/></g>
+   </svg>
+   <div class="scene-caption"><b>Chegou no ponto de coleta!</b><span>Recebimento • Organização • Retirada</span></div>
   </div>
  </div>
 </section>
@@ -256,7 +292,7 @@ img{display:block;max-width:100%}
  </div>
 </section>
 </main>
-<footer class="footer"><div class="wrap footer-inner"><div><div class="footer-brand">ML COLETAS</div><small>Atendimento e pré-cadastro de interessados.</small></div><div class="footer-copy">ML COLETAS é um canal independente de atendimento e pré-cadastro, não um canal oficial do Mercado Livre. A marca Mercado Livre é mencionada apenas para identificar a operação de encomendas sobre a qual o interessado deseja obter informações.</div></div></footer>
+<footer class="footer"><div class="wrap footer-inner"><div><div class="footer-brand">ML COLETAS</div><small>Atendimento e pré-cadastro de interessados.</small></div><div class="footer-copy">Informação e captação de interessados em pontos de coleta de encomendas.</div></div></footer>
 <script>
 const cpfInput=document.getElementById('cpf');
 cpfInput.addEventListener('input',()=>{let v=cpfInput.value.replace(/\D/g,'').slice(0,11);v=v.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');cpfInput.value=v;});
