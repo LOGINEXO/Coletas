@@ -184,17 +184,25 @@ img{display:block;max-width:100%}
 @media(max-width:600px){.wizard-card{padding:22px 16px}.wizard-progress{gap:8px;margin-bottom:27px}.wizard-step{font-size:11px;gap:6px}.wizard-step span{width:29px;height:29px}.choice-grid{grid-template-columns:1fr}.choice span{min-height:43px}.question legend{font-size:14px}.wizard-actions{grid-template-columns:1fr}.wizard-actions .wizard-button{margin-top:0!important}.back-button{margin-top:10px;grid-row:2}}
 
 
-.photo-delivery{min-height:390px;border-radius:24px;overflow:hidden;background:#20265f;box-shadow:0 24px 65px #10143d55;isolation:isolate}
-.truck-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 52%;z-index:-2}
-.photo-delivery:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#11183dcc);z-index:-1;pointer-events:none}
-.parcel-on-truck{position:absolute;z-index:2;top:18%;left:54%;width:132px;height:106px;filter:drop-shadow(0 12px 12px #11152b66);transform:rotate(-3deg)}
-.parcel-face{height:100%;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:9px;background:linear-gradient(145deg,#f4c879,#d99b45);border:2px solid #9a642b;border-radius:3px 3px 7px 7px;box-shadow:inset 0 0 0 5px #ffffff22}
-.parcel-face:before{content:"";position:absolute;top:0;left:50%;height:100%;width:17px;transform:translateX(-50%);background:#f8dda6aa;border-left:1px solid #9a642b66;border-right:1px solid #9a642b66}
-.parcel-face img{position:relative;z-index:1;width:55px;height:49px;object-fit:contain;filter:drop-shadow(0 1px 1px #fff8)}
-.parcel-face span{position:relative;z-index:1;font-size:8px;font-weight:950;letter-spacing:.05em;color:#20265f;background:#fff;padding:3px 5px;border-radius:3px}
-.photo-caption{position:absolute;z-index:3;bottom:14px;left:14px;right:14px;display:grid;gap:5px;padding:13px 16px;border:1px solid #ffffff40;border-radius:13px;background:#171d58e8;color:#fff}
-.photo-caption b{font-size:13px}.photo-caption span{font-size:10px;color:#ffe600;font-weight:800;letter-spacing:.06em}
-@media(max-width:700px){.photo-delivery{min-height:300px;border-radius:18px}.parcel-on-truck{top:17%;left:53%;width:108px;height:88px}.parcel-face img{width:45px;height:40px}.photo-caption{bottom:10px;left:10px;right:10px;padding:10px 12px}.photo-caption b{font-size:11px}.photo-caption span{font-size:9px}}
+
+.photo-delivery{position:relative;display:grid;grid-template-columns:1.12fr .88fr;grid-template-rows:190px 170px;gap:12px;align-content:center;min-height:410px;width:100%;max-width:550px;padding:12px;border-radius:24px;background:#fff;box-shadow:0 24px 65px #10143d55;overflow:hidden}
+.agency-photo{position:relative;min-width:0;min-height:0;overflow:hidden;border-radius:14px;background:#d8dbea}
+.agency-photo>img{width:100%;height:100%;object-fit:cover;display:block}
+.agency-main{grid-column:1;grid-row:1 / span 2}
+.agency-main>img{object-position:42% center}
+.agency-side{grid-column:2;grid-row:1}
+.agency-side>img{object-position:45% center}
+.truck-tile{grid-column:2;grid-row:2}
+.truck-tile .truck-photo{object-position:center center}
+.photo-tag{position:absolute;left:9px;bottom:9px;padding:7px 9px;border-radius:7px;background:#20265feF;color:#ffe600;font-size:8px;font-weight:950;letter-spacing:.07em;box-shadow:0 3px 10px #0003}
+.truck-door-logo{position:absolute;left:43%;top:42%;width:65px;height:58px;padding:5px;background:#fff;border:1px solid #e6e8f0;border-radius:6px;box-shadow:0 3px 9px #0003;display:grid;place-items:center}
+.truck-door-logo img{width:100%;height:100%;object-fit:contain}
+.parcels-tile{display:none}
+.photo-caption{position:absolute;z-index:5;bottom:12px;left:12px;right:12px;display:grid;gap:4px;padding:11px 14px;border:1px solid #ffffff40;border-radius:12px;background:#171d58ed;color:#fff;box-shadow:0 7px 20px #10143d35}
+.photo-caption b{font-size:12px}.photo-caption span{font-size:9px;color:#ffe600;font-weight:850;letter-spacing:.06em}
+@media(min-width:701px){.photo-delivery{grid-template-columns:1.05fr .95fr;grid-template-rows:175px 175px}.agency-main{grid-row:1 / span 2}.agency-side{grid-column:2;grid-row:1}.truck-tile{grid-column:2;grid-row:2}}
+@media(max-width:700px){.photo-delivery{min-height:340px;grid-template-columns:1fr 1fr;grid-template-rows:145px 135px;gap:8px;padding:8px;border-radius:18px;margin-top:6px}.agency-main{grid-column:1;grid-row:1 / span 2}.agency-side{grid-column:2;grid-row:1}.truck-tile{grid-column:2;grid-row:2}.photo-tag{left:6px;bottom:6px;padding:6px 7px;font-size:7px}.truck-door-logo{width:48px;height:43px;left:40%;top:42%;padding:4px}.photo-caption{bottom:8px;left:8px;right:8px;padding:9px 11px}.photo-caption b{font-size:10px}.photo-caption span{font-size:8px}}
+
 
 </style>
 </head>
@@ -222,15 +230,28 @@ img{display:block;max-width:100%}
    <a class="btn" href="#cadastro">QUERO CONHECER A OPORTUNIDADE <span>→</span></a>
    <div class="hero-note"><b>✓</b> Pré-cadastro simples • Atendimento pelo WhatsApp</div>
   </div>
-  <div class="hero-visual photo-delivery" aria-label="Foto real de caminhão de entregas com encomenda identificada Mercado Livre">
-   <img class="truck-photo" src="https://images.pexels.com/photos/27676687/pexels-photo-27676687/free-photo-of-a-truck-is-parked-on-the-side-of-the-road.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" alt="Caminhão amarelo de entregas descarregando encomendas" loading="eager">
-   <div class="parcel-on-truck" aria-label="Caixa de encomenda Mercado Livre sobre a carroceria">
-    <div class="parcel-face">
-     <img src="https://i.logos-download.com/114454/32896-717400b83dd96e5d61a4044b82a43deb.svg/Mercado_Libre_Logo_2021.svg?dl=" alt="Logotipo Mercado Livre">
-     <span>MERCADO LIVRE</span>
-    </div>
+  <div class="hero-visual photo-delivery" aria-label="Fachadas reais de pontos de coleta, caminhão de entregas e caixas Mercado Livre">
+   <div class="agency-photo agency-main">
+    <img src="https://millerboulevard.com.br/wp-content/uploads/2025/01/ML-Ponto-Coleta.jpg" alt="Fachada de ponto de coleta Mercado Livre com identificação amarela" loading="eager">
+    <span class="photo-tag">PONTO DE COLETA</span>
    </div>
-   <div class="photo-caption"><b>Encomendas a caminho do ponto de coleta</b><span>Recebimento • Organização • Retirada</span></div>
+   <div class="agency-photo agency-side">
+    <img src="https://revistaurbanova.com.br/wp-content/uploads/2022/02/WhatsApp-Image-2022-02-04-at-11.30.06.jpeg" alt="Fachada de comércio identificado como agência Mercado Livre" loading="lazy">
+    <span class="photo-tag">AGÊNCIA DE ENVIO</span>
+   </div>
+   <div class="agency-photo truck-tile">
+    <img class="truck-photo" src="https://images.pexels.com/photos/31049388/pexels-photo-31049388.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Caminhão real de entregas estacionado" loading="lazy">
+    <div class="truck-door-logo"><img src="https://i.logos-download.com/114454/32896-717400b83dd96e5d61a4044b82a43deb.svg/Mercado_Libre_Logo_2021.svg?dl=" alt="Logo Mercado Livre"></div>
+    <span class="photo-tag">COLETA DE ENCOMENDAS</span>
+   </div>
+   <div class="agency-photo parcels-tile">
+    <img src="https://images.pexels.com/photos/6169022/pexels-photo-6169022.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1000" alt="Várias caixas de encomendas empilhadas" loading="lazy">
+    <div class="box-logo box-logo-one"><img src="https://i.logos-download.com/114454/32896-717400b83dd96e5d61a4044b82a43deb.svg/Mercado_Libre_Logo_2021.svg?dl=" alt="Mercado Livre"></div>
+    <div class="box-logo box-logo-two"><img src="https://i.logos-download.com/114454/32896-717400b83dd96e5d61a4044b82a43deb.svg/Mercado_Libre_Logo_2021.svg?dl=" alt="Mercado Livre"></div>
+    <div class="box-logo box-logo-three"><img src="https://i.logos-download.com/114454/32896-717400b83dd96e5d61a4044b82a43deb.svg/Mercado_Libre_Logo_2021.svg?dl=" alt="Mercado Livre"></div>
+    <span class="photo-tag">PACOTES IDENTIFICADOS</span>
+   </div>
+   <div class="photo-caption"><b>Uma rede de pontos de coleta pelo Brasil</b><span>Fachadas • Caminhão • Encomendas</span></div>
   </div>
  </div>
 </section>
