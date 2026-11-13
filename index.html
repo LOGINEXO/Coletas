@@ -83,6 +83,10 @@ img{display:block;max-width:100%}
 .field input::placeholder{color:#a1a7b8}
 .field input:focus,.field select:focus{border-color:var(--navy);box-shadow:0 0 0 3px #2d327718}
 .optional-help{font-size:11px;color:#858ba1;line-height:1.4}
+.document-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.document-tab{margin:0!important;padding:12px;border:1px solid #d9deeb!important;border-radius:10px;background:#f7f8fc;color:#59617d;font-size:13px!important;font-weight:900!important}
+.document-tab.active{background:var(--navy);border-color:var(--navy)!important;color:#fff}
+.document-tab:focus-visible{outline:3px solid #2d327733;outline-offset:2px}
 .form-card button{width:100%;border:0;cursor:pointer;margin-top:20px;font:inherit;font-size:14px;font-weight:950}
 .privacy{margin:14px 0 0;color:#7a8198;font-size:11px;line-height:1.55}
 .notice{display:none;margin-top:13px;padding:12px 14px;border-radius:11px;background:#eaf8ef;color:#14633e;font-size:13px}
@@ -324,16 +328,24 @@ img{display:block;max-width:100%}
     <div class="form-card-head"><div><span class="kicker">ETAPA 2 DE 2</span><h3>Seus dados</h3><p>Agora informe os dados para nossa equipe entrar em contato.</p></div><span class="form-chip">2 DE 2</span></div>
     <div class="fields">
      <div class="field"><label for="nome">Nome completo <span>(opcional)</span></label><input id="nome" name="nome" autocomplete="name" placeholder="Seu nome completo"></div>
-     <div class="field"><label for="cpf">CPF <span>(opcional)</span></label><input id="cpf" name="cpf" inputmode="numeric" autocomplete="off" maxlength="14" placeholder="000.000.000-00"><small class="optional-help">Informe somente se desejar.</small></div>
+     <div class="field full">
+      <label>Documento <span>(opcional)</span></label>
+      <div class="document-tabs" role="group" aria-label="Tipo de documento">
+       <button class="document-tab active" type="button" data-document="CPF" aria-pressed="true">CPF</button>
+       <button class="document-tab" type="button" data-document="CNPJ" aria-pressed="false">CNPJ</button>
+      </div>
+      <input id="documento" name="documento" inputmode="numeric" autocomplete="off" maxlength="14" placeholder="000.000.000-00">
+     </div>
      <div class="field"><label for="telefone">WhatsApp *</label><input id="telefone" name="telefone" type="tel" autocomplete="tel" required placeholder="(00) 00000-0000"></div>
      <div class="field"><label for="email">E-mail <span>(opcional)</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com"></div>
      <div class="field full"><label for="comercio">Nome do comércio *</label><input id="comercio" name="comercio" required placeholder="Nome do estabelecimento"></div>
-     <div class="field"><label for="cnpj">CNPJ <span>(opcional)</span></label><input id="cnpj" name="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00"></div>
-     <div class="field"><label for="cidade">Cidade *</label><input id="cidade" name="cidade" required placeholder="Sua cidade"></div>
+     <div class="field full"><label for="endereco">Endereço (rua/avenida) *</label><input id="endereco" name="endereco" autocomplete="street-address" required placeholder="Nome da rua ou avenida"></div>
+     <div class="field"><label for="numero">Número *</label><input id="numero" name="numero" inputmode="numeric" autocomplete="address-line2" required placeholder="Número do imóvel"></div>
+     <div class="field"><label for="cep">CEP *</label><input id="cep" name="cep" inputmode="numeric" autocomplete="postal-code" maxlength="9" required placeholder="00000-000"></div>
+     <div class="field"><label for="cidade">Cidade *</label><input id="cidade" name="cidade" required autocomplete="address-level2" placeholder="Sua cidade"></div>
      <div class="field"><label for="estado">Estado *</label><select id="estado" name="estado" required><option value="">Selecione</option><option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option><option>SE</option><option>TO</option></select></div>
     </div>
     <div class="wizard-actions"><button class="back-button" id="backToQuestions" type="button">← Voltar às perguntas</button><button class="btn wizard-button" type="submit">ENVIAR PELO WHATSAPP <span>→</span></button></div>
-    <p class="privacy">Confira seus dados. O WhatsApp abrirá com a mensagem pronta para você revisar e enviar. Nome completo e CPF são opcionais.</p>
     <div class="notice" id="notice" role="status">Abrindo o WhatsApp…</div>
    </section>
   </form>
@@ -367,12 +379,35 @@ document.getElementById('backToQuestions').addEventListener('click',()=>{
  document.getElementById('cadastro').scrollIntoView({behavior:'smooth',block:'start'});
 });
 leadForm.querySelectorAll('.question input').forEach(input=>input.addEventListener('change',()=>{questionNotice.style.display='none';}));
-const cpfInput=document.getElementById('cpf');
-cpfInput.addEventListener('input',()=>{let v=cpfInput.value.replace(/\D/g,'').slice(0,11);v=v.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');cpfInput.value=v;});
+let documentType='CPF';
+const documentInput=document.getElementById('documento');
+document.querySelectorAll('.document-tab').forEach(tab=>tab.addEventListener('click',()=>{
+ documentType=tab.dataset.document;
+ document.querySelectorAll('.document-tab').forEach(item=>{
+  const active=item===tab;item.classList.toggle('active',active);item.setAttribute('aria-pressed',String(active));
+ });
+ documentInput.value='';
+ documentInput.maxLength=documentType==='CPF'?14:18;
+ documentInput.placeholder=documentType==='CPF'?'000.000.000-00':'00.000.000/0000-00';
+}));
+documentInput.addEventListener('input',()=>{
+ const digits=documentInput.value.replace(/\D/g,'').slice(0,documentType==='CPF'?11:14);
+ let value=digits;
+ if(documentType==='CPF'){
+  value=value.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+ }else{
+  value=value.replace(/^(\d{2})(\d)/,'$1.$2').replace(/^(\d{2})\.(\d{3})(\d)/,'$1.$2.$3').replace(/\.(\d{3})(\d)/,'.$1/$2').replace(/(\d{4})(\d)/,'$1-$2');
+ }
+ documentInput.value=value;
+});
+document.getElementById('cep').addEventListener('input',e=>{
+ const digits=e.target.value.replace(/\D/g,'').slice(0,8);
+ e.target.value=digits.length>5?digits.slice(0,5)+'-'+digits.slice(5):digits;
+});
 leadForm.addEventListener('submit',function(e){
  e.preventDefault();
  if(dataStep.hidden){showDataStep();return;}
- const required=['telefone','comercio','cidade','estado'];
+ const required=['telefone','comercio','endereco','numero','cep','cidade','estado'];
  for(const id of required){const field=document.getElementById(id);if(!field.reportValidity()){field.focus();return;}}
  const d=new FormData(this);
  const msg=[
@@ -387,11 +422,12 @@ leadForm.addEventListener('submit',function(e){
   '',
   'DADOS DO INTERESSADO',
   'Nome completo: '+(d.get('nome')||'Não informado'),
-  'CPF: '+(d.get('cpf')||'Não informado'),
+  documentType+': '+(d.get('documento')||'Não informado'),
   'WhatsApp: '+d.get('telefone'),
   'E-mail: '+(d.get('email')||'Não informado'),
   'Comércio: '+d.get('comercio'),
-  'CNPJ: '+(d.get('cnpj')||'Não informado'),
+  'Endereço: '+d.get('endereco')+', nº '+d.get('numero'),
+  'CEP: '+d.get('cep'),
   'Cidade/UF: '+d.get('cidade')+'/'+d.get('estado')
  ].join('\n');
  document.getElementById('notice').style.display='block';
