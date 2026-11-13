@@ -189,22 +189,29 @@ img{display:block;max-width:100%}
 
 
 .hero-single{display:block;width:100%;height:auto;border-radius:28px;overflow:hidden;box-shadow:0 24px 60px rgba(32,38,95,.22);background:#f1cf37}.hero-single img{width:100%;height:auto;object-fit:contain;object-position:center}@media(max-width:800px){.hero-single{height:auto;border-radius:20px}.hero-single img{height:auto;object-fit:contain}}\n
-/* Cabeçalho responsivo: evita sobreposição no celular */
+/* Cabeçalho mobile em duas faixas: marca e ações lado a lado */
 @media(max-width:700px){
  .nav{
   min-height:0;
-  padding:12px 0 14px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:12px;
+  padding:10px 0 12px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:10px;
  }
  .brand{
   width:100%;
-  max-width:100%;
-  justify-content:center;
+  min-width:0;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:flex-start;
   gap:10px;
+  text-align:left;
  }
+ .brand-logo{flex:0 0 48px;width:48px;height:48px;border-radius:10px}
+ .brand>span{display:block;min-width:0;text-align:left}
+ .brand-name{display:block;font-size:19px;line-height:1.05;white-space:nowrap}
+ .brand-sub{display:block;margin-top:4px;font-size:9px;line-height:1.2;letter-spacing:0}
  .nav-right{
   position:static;
   top:auto;
@@ -212,22 +219,25 @@ img{display:block;max-width:100%}
   transform:none;
   width:100%;
   display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:12px;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
  }
- .meli-word{width:108px;max-height:38px}
- .nav-cta{padding:11px 17px;font-size:11px}
+ .meli-word{display:block;flex:0 1 112px;width:112px;max-height:34px}
+ .meli-fallback{font-size:14px;white-space:nowrap}
+ .nav-cta{flex:0 0 auto;padding:11px 16px;font-size:10px;white-space:nowrap}
 }
 @media(max-width:380px){
- .nav{gap:10px}
- .brand{max-width:100%;gap:8px}
- .brand-logo{width:46px;height:46px}
- .brand-sub{max-width:none;font-size:8px}
- .nav-right .meli-word{display:block;width:88px}
- .nav-cta{padding:10px 14px;font-size:10px}
+ .nav{gap:8px;padding:9px 0 10px}
+ .brand-logo{flex-basis:43px;width:43px;height:43px}
+ .brand-name{font-size:17px}
+ .brand-sub{font-size:8px}
+ .nav-right{gap:7px}
+ .meli-word{flex-basis:94px;width:94px;max-height:30px}
+ .nav-cta{padding:10px 12px;font-size:9px}
 }
-
 </style>
 </head>
 <body>
