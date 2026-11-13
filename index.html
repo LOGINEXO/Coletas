@@ -188,7 +188,47 @@ img{display:block;max-width:100%}
 @media(max-width:700px){.photo-delivery{min-height:340px;grid-template-columns:1fr 1fr;grid-template-rows:145px 135px;gap:8px;padding:8px;border-radius:18px;margin-top:6px}.agency-main{grid-column:1;grid-row:1}.agency-side{grid-column:2;grid-row:1}.truck-tile{grid-column:1;grid-row:2}.parcels-tile{grid-column:2;grid-row:2}.photo-tag{left:6px;bottom:6px;padding:6px 7px;font-size:7px}.truck-door-logo{width:48px;height:43px;left:40%;top:42%;padding:4px}.box-logo{width:31px;height:29px;padding:3px}.photo-caption{bottom:8px;left:8px;right:8px;padding:9px 11px}.photo-caption b{font-size:10px}.photo-caption span{font-size:8px}}
 
 
-.hero-single{display:block;width:100%;height:auto;border-radius:28px;overflow:hidden;box-shadow:0 24px 60px rgba(32,38,95,.22);background:#f1cf37}.hero-single img{width:100%;height:auto;object-fit:contain;object-position:center}@media(max-width:800px){.hero-single{height:auto;border-radius:20px}.hero-single img{height:auto;object-fit:contain}}\n</style>
+.hero-single{display:block;width:100%;height:auto;border-radius:28px;overflow:hidden;box-shadow:0 24px 60px rgba(32,38,95,.22);background:#f1cf37}.hero-single img{width:100%;height:auto;object-fit:contain;object-position:center}@media(max-width:800px){.hero-single{height:auto;border-radius:20px}.hero-single img{height:auto;object-fit:contain}}\n
+/* Cabeçalho responsivo: evita sobreposição no celular */
+@media(max-width:700px){
+ .nav{
+  min-height:0;
+  padding:12px 0 14px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:12px;
+ }
+ .brand{
+  width:100%;
+  max-width:100%;
+  justify-content:center;
+  gap:10px;
+ }
+ .nav-right{
+  position:static;
+  top:auto;
+  right:auto;
+  transform:none;
+  width:100%;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:12px;
+ }
+ .meli-word{width:108px;max-height:38px}
+ .nav-cta{padding:11px 17px;font-size:11px}
+}
+@media(max-width:380px){
+ .nav{gap:10px}
+ .brand{max-width:100%;gap:8px}
+ .brand-logo{width:46px;height:46px}
+ .brand-sub{max-width:none;font-size:8px}
+ .nav-right .meli-word{display:block;width:88px}
+ .nav-cta{padding:10px 14px;font-size:10px}
+}
+
+</style>
 </head>
 <body>
 <header class="header">
